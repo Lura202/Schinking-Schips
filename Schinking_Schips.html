@@ -1,9 +1,103 @@
+<!DOCTYPE html>
 <html>
-<head>
-<title>Schinking Schips</title>
-<scriptlanguage="Javascript">
-</script>
-</head>
-<body>
-</body>
+<meta charset="UTF-8">
+
+	<head>
+		<style>
+			.button {
+				background-color: #e7e7e7; color: black;
+				border: none;
+				color: black;
+				padding: 15px 15px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 15px;
+				margin: 3px 3px;
+				cursor: pointer;
+			}
+			.button:disabled {
+				background-color: #a6a6a6; color: black;
+				border: none;
+				color: black;
+				padding: 15px 15px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 15px;
+				margin: 3px 3px;
+				cursor: pointer;
+			} 
+			body {
+				background-color: lightblue;
+			}
+		</style>
+		<title>Schinking Schips</title>
+		<script language="Javascript">
+			var i = 0;
+			function reply_click(id){
+				if(i < 8){
+					i += 1;
+					document.getElementById(id).value="Close Curtain";
+					document.getElementById(id).disabled = true;
+					alert("Du hast bereits " +i+ " von 8 Versuchen verbraucht");
+				}
+				else{
+					alert("Du hast bereits alle Versuche verbraucht");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>X</th>
+				<th>A</th>
+				<th>B</th>
+				<th>C</th>
+				<th>D</th>
+				<th>E</th>
+			</tr>
+			<tr>
+				<th>1</th>
+				<th><button id="a1" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="b1" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="c1" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="d1" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="e1" onclick=reply_click(this.id) class="button"></button></th>
+			</tr>
+			<tr>
+				<th>2</th>
+				<th><button id="a2" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="b2" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="c2" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="d2" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="e2" onclick=reply_click(this.id) class="button"></button></th>
+			</tr>
+			<tr>
+				<th>3</th>
+				<th><button id="a3" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="b3" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="c3" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="d3" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="e3" onclick=reply_click(this.id) class="button"></button></th>
+			</tr>
+			<tr>
+				<th>4</th>
+				<th><button id="a4" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="b4" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="c4" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="d4" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="e4" onclick=reply_click(this.id) class="button"></button></th>
+			</tr>
+			<tr>
+				<th>5</th>
+				<th><button id="a5" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="b5" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="c5" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="d5" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="e5" onclick=reply_click(this.id) class="button"></button></th>
+			</tr>
+		</table>
+	</body>	
 </html>
