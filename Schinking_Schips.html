@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
-
 	<head>
 		<style>
 			.button {
-				background-color: #e7e7e7; color: black;
-				border: none;
+				background-color: lightblue; color: black;
+				border: 1px solid #000000;
 				color: black;
 				padding: 15px 15px;
 				text-align: center;
 				text-decoration: none;
 				display: inline-block;
-				font-size: 15px;
+				font-size: 12px;
 				margin: 3px 3px;
 				cursor: pointer;
 			}
 			.button:disabled {
-				background-color: #a6a6a6; color: black;
-				border: none;
+				background-color: gray; color: black;
+				border: 1px solid #000000;
 				color: black;
 				padding: 15px 15px;
 				text-align: center;
 				text-decoration: none;
 				display: inline-block;
-				font-size: 15px;
+				font-size: 12px;
 				margin: 3px 3px;
-				cursor: pointer;
-			} 
+				cursor: not-allowed;
+			}
+			.button2 {
+				background-color: red; color: black;
+				border: 1px solid #000000;
+				color: black;
+				padding: 15px 15px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 12px;
+				margin: 3px 3px;
+				cursor: not-allowed;
+			}
 			body {
 				background-color: lightblue;
 			}
@@ -35,15 +46,34 @@
 		<title>Schinking Schips</title>
 		<script language="Javascript">
 			var i = 0;
+			var s = 0;
 			function reply_click(id){
 				if(i < 8){
 					i += 1;
-					document.getElementById(id).value="Close Curtain";
+					var v = 8;
+					v=v-i;
 					document.getElementById(id).disabled = true;
-					alert("Du hast bereits " +i+ " von 8 Versuchen verbraucht");
+					alert("Daneben! Du hast noch "+v+" Versuch(e)");
 				}
 				else{
-					alert("Du hast bereits alle Versuche verbraucht");
+					alert("Du hast keine Versuche mehr!");
+				}
+			}
+			function schip_sink(id){
+				if(i<8){
+					document.getElementById(id).classList.add('button2');
+					document.getElementById(id).classList.remove('button');
+					document.getElementById(id).disabled = true;
+					s += 1;
+					if(s>=5){
+						alert("Getroffen! Du hast Gewonnen!");
+					}
+					else{
+						alert("Getroffen");
+					}
+				}
+				else{
+					alert("Du hast keine Versuche mehr!");
 				}
 			}
 		</script>
@@ -51,7 +81,7 @@
 	<body>
 		<table>
 			<tr>
-				<th>X</th>
+				<th></th>
 				<th>A</th>
 				<th>B</th>
 				<th>C</th>
@@ -60,7 +90,7 @@
 			</tr>
 			<tr>
 				<th>1</th>
-				<th><button id="a1" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="a1" onclick=schip_sink(this.id) class="button"></button></th>
 				<th><button id="b1" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="c1" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="d1" onclick=reply_click(this.id) class="button"></button></th>
@@ -71,13 +101,13 @@
 				<th><button id="a2" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="b2" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="c2" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="d2" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="d2" onclick=schip_sink(this.id) class="button"></button></th>
 				<th><button id="e2" onclick=reply_click(this.id) class="button"></button></th>
 			</tr>
 			<tr>
 				<th>3</th>
 				<th><button id="a3" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="b3" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="b3" onclick=schip_sink(this.id) class="button"></button></th>
 				<th><button id="c3" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="d3" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="e3" onclick=reply_click(this.id) class="button"></button></th>
@@ -87,14 +117,14 @@
 				<th><button id="a4" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="b4" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="c4" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="d4" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="d4" onclick=schip_sink(this.id) class="button"></button></th>
 				<th><button id="e4" onclick=reply_click(this.id) class="button"></button></th>
 			</tr>
 			<tr>
 				<th>5</th>
 				<th><button id="a5" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="b5" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="c5" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button id="c5" onclick=schip_sink(this.id) class="button"></button></th>
 				<th><button id="d5" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button id="e5" onclick=reply_click(this.id) class="button"></button></th>
 			</tr>
