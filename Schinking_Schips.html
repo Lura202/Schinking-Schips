@@ -45,36 +45,44 @@
 		</style>
 		<title>Schinking Schips</title>
 		<script language="Javascript">
-			var i = 0;
-			var s = 0;
+			var treffer = 0;
+			var schuesse = 10;
+			var sendet = 0;
 			function reply_click(id){
-				if(i < 8){
-					i += 1;
-					var v = 8;
-					v=v-i;
-					document.getElementById(id).disabled = true;
-					alert("Daneben! Du hast noch "+v+" Versuch(e)");
+				if(sendet == 0){
+					send_Schips();
+				}
+				if(treffer>=5){
+					alert("Du hast doch schon Gewonnen!");
 				}
 				else{
-					alert("Du hast keine Versuche mehr!");
-				}
-			}
-			function schip_sink(id){
-				if(i<8){
-					document.getElementById(id).classList.add('button2');
-					document.getElementById(id).classList.remove('button');
-					document.getElementById(id).disabled = true;
-					s += 1;
-					if(s>=5){
-						alert("Getroffen! Du hast Gewonnen!");
+					if(schuesse>0){
+						
+						var name = document.getElementById(id).name;
+						if(name=="schip"){	
+							document.getElementById(id).classList.add('button2');
+							document.getElementById(id).classList.remove('button');
+							document.getElementById(id).disabled = true;
+							treffer += 1;
+						}
+						else{
+							document.getElementById(id).disabled = true;
+						}
+						schuesse -= 1;
 					}
 					else{
-						alert("Getroffen");
+						alert("Du hast alle Versuche verbraucht!");
 					}
 				}
-				else{
-					alert("Du hast keine Versuche mehr!");
+			}
+			function send_Schips(){
+				var i = 0;
+				while (i < 5){
+					var schip_id= Math.floor(Math.random() * Math.floor(25));
+					document.getElementById(schip_id).name = "schip";
+					i += 1;
 				}
+				//alert("Schipas has been sended");
 			}
 		</script>
 	</head>
@@ -88,46 +96,46 @@
 				<th>D</th>
 				<th>E</th>
 			</tr>
-			<tr>
-				<th>1</th>
-				<th><button id="a1" onclick=schip_sink(this.id) class="button"></button></th>
-				<th><button id="b1" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="c1" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="d1" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="e1" onclick=reply_click(this.id) class="button"></button></th>
-			</tr>
-			<tr>
-				<th>2</th>
-				<th><button id="a2" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="b2" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="c2" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="d2" onclick=schip_sink(this.id) class="button"></button></th>
-				<th><button id="e2" onclick=reply_click(this.id) class="button"></button></th>
-			</tr>
-			<tr>
+			<tr>																																									
+				<th>1</th>																																
+				<th><button name="water" id="1" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="2" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="3" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="4" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="5" onclick=reply_click(this.id) class="button"></button></th>
+			</tr>																															
+			<tr>																																	
+				<th>2</th>																										
+				<th><button name="water" id="6" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="7" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="8" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="9" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="10" onclick=reply_click(this.id) class="button"></button></th>
+			</tr>  																																							
+			<tr>																																						
 				<th>3</th>
-				<th><button id="a3" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="b3" onclick=schip_sink(this.id) class="button"></button></th>
-				<th><button id="c3" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="d3" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="e3" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="11" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="12" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="13" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="14" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="15" onclick=reply_click(this.id) class="button"></button></th>
+			</tr>																													
+			<tr>																						
+				<th>4</th>																																			
+				<th><button name="water" id="16" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="17" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="18" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="19" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="20" onclick=reply_click(this.id) class="button"></button></th>
+			</tr>																										
+			<tr>																									
+				<th>5</th>																																							
+				<th><button name="water" id="21" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="22" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="23" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="24" onclick=reply_click(this.id) class="button"></button></th>
+				<th><button name="water" id="25" onclick=reply_click(this.id) class="button"></button></th>
 			</tr>
-			<tr>
-				<th>4</th>
-				<th><button id="a4" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="b4" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="c4" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="d4" onclick=schip_sink(this.id) class="button"></button></th>
-				<th><button id="e4" onclick=reply_click(this.id) class="button"></button></th>
-			</tr>
-			<tr>
-				<th>5</th>
-				<th><button id="a5" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="b5" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="c5" onclick=schip_sink(this.id) class="button"></button></th>
-				<th><button id="d5" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button id="e5" onclick=reply_click(this.id) class="button"></button></th>
-			</tr>
-		</table>
-	</body>	
-</html>
+		</table>																																																																																																
+	</body>																																																					
+</html>																																											
