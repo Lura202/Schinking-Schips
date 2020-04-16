@@ -80,8 +80,10 @@
 				var i = 0;
 				while (i < 5){
 					var schip_id= Math.floor(Math.random() * Math.floor(25));
-					document.getElementById(schip_id).name = "schip";
-					i += 1;
+						if(document.getElementById(schip_id).name == "water"){
+						document.getElementById(schip_id).name = "schip";
+						i += 1;
+					}
 				}
 				//alert("Schipas has been sended");
 			}
