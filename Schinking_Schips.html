@@ -51,6 +51,7 @@
 			function reply_click(id){
 				if(sendet == 0){
 					send_Schips();
+					sendet += 1;
 				}
 				if(treffer>=5){
 					alert("Du hast doch schon Gewonnen!");
@@ -103,6 +104,7 @@
 				<th><button name="water" id="3" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button name="water" id="4" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button name="water" id="5" onclick=reply_click(this.id) class="button"></button></th>
+				
 			</tr>
 			<tr>
 				<th>2</th>
