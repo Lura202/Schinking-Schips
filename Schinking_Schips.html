@@ -2,92 +2,9 @@
 <html>
 <meta charset="UTF-8">
 	<head>
-		<style>
-			.button {
-				background-color: lightblue; color: black;
-				border: 1px solid #000000;
-				color: black;
-				padding: 15px 15px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 12px;
-				margin: 3px 3px;
-				cursor: pointer;
-			}
-			.button:disabled {
-				background-color: gray; color: black;
-				border: 1px solid #000000;
-				color: black;
-				padding: 15px 15px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 12px;
-				margin: 3px 3px;
-				cursor: not-allowed;
-			}
-			.button2 {
-				background-color: red; color: black;
-				border: 1px solid #000000;
-				color: black;
-				padding: 15px 15px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 12px;
-				margin: 3px 3px;
-				cursor: not-allowed;
-			}
-			body {
-				background-color: lightblue;
-			}
-		</style>
 		<title>Schinking Schips</title>
-		<script language="Javascript">
-			var treffer = 0;
-			var schuesse = 10;
-			var sendet = 0;
-			function reply_click(id){
-				if(sendet == 0){
-					send_Schips();
-					sendet += 1;
-				}
-				if(treffer>=5){
-					alert("Du hast doch schon Gewonnen!");
-				}
-				else{
-					if(schuesse>0){
-						
-						var name = document.getElementById(id).name;
-						if(name=="schip"){	
-							document.getElementById(id).classList.add('button2');
-							document.getElementById(id).classList.remove('button');
-							document.getElementById(id).disabled = true;
-							treffer += 1;
-						}
-						else{
-							document.getElementById(id).disabled = true;
-						}
-						schuesse -= 1;
-					}
-					else{
-						alert("Du hast alle Versuche verbraucht!");
-					}
-				}
-			}
-			function send_Schips(){
-				var i = 0;
-				while (i < 5){
-					var schip_id= Math.floor(Math.random() * Math.floor(25));
-						if(document.getElementById(schip_id).name == "water"){
-						document.getElementById(schip_id).name = "schip";
-						i += 1;
-					}
-				}
-				//alert("Schipas has been sended");
-			}
-		</script>
+		<link rel = "stylesheet" type = "text/css" href = "Schinking_Schips.css"/>
+		<script src="Schinking_Schips.js"></script>
 	</head>
 	<body>
 		<table>
@@ -105,8 +22,7 @@
 				<th><button name="water" id="2" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button name="water" id="3" onclick=reply_click(this.id) class="button"></button></th>
 				<th><button name="water" id="4" onclick=reply_click(this.id) class="button"></button></th>
-				<th><button name="water" id="5" onclick=reply_click(this.id) class="button"></button></th>
-				
+				<th><button name="water" id="5" onclick=reply_click(this.id) class="button"></button></th>		
 			</tr>
 			<tr>
 				<th>2</th>
