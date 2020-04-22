@@ -1,5 +1,5 @@
 			var treffer = 0;
-			var schuesse = 10;
+			var schuesse = 15;
 			var sendet = 0;
 			function reply_click(id){
 				if(sendet == 0){
